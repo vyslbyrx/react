@@ -5,8 +5,6 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {About,Contact,Home,History,App} from "./App"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-
 root.render(
     <BrowserRouter>
         <Routes >
@@ -15,7 +13,6 @@ root.render(
             <Route path="history" element={<History/>}/>
             </Route>
             <Route path="/contactus" element={<Contact />} />
-
         </Routes>
     </BrowserRouter>
 
