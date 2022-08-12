@@ -1,7 +1,5 @@
 import { Link,Outlet} from "react-router-dom"
-
 import './App.css';
-
 
 export function Home() {
     return(
@@ -51,7 +49,7 @@ export function App() {
 
   return (
     <div className="App">
-        <Link to="/home" >Home</Link>
+        <Link to="/" >Home</Link>
         <Link to="/about" >About</Link>
         <Link to="/about/history" >History</Link>
 <h1>Merbaa Reizzz</h1>
