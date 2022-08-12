@@ -19,7 +19,6 @@ export function Home() {
 }
 
 export function FormValidate() {
-    let userName;
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     const [mail, setMail] = useState("");
@@ -56,7 +55,6 @@ export function FormValidate() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const acceptUser = users.filter(x => x.user === user && x.mail === mail && x.password === password);
-        userName = acceptUser[0];
         acceptUser.length === 0 && setError(true)
         acceptUser.length === 1 && setWelcome(true)
         acceptUser.length === 1 && setError(false)
