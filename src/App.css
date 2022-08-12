@@ -1,38 +1,140 @@
-.App {
-  text-align: center;
-}
+:root {
+  --currentColor: #212121;
+  --color-light: white;
+  --color-dark: #212121;
+  --color-signal: #fab700;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+  --color-background: var(--color-light);
+  --color-text: var(--color-dark);
+  --color-accent: var(--color-signal);
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  --size-bezel: .5rem;
+  --size-radius: 4px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Form Validate */
+.form-validate {
+  background: var(--color-background);
+  padding: calc(4 * var(--size-bezel));
+  margin-top: calc(4 * var(--size-bezel));
+  border-radius: var(--size-radius);
+  border: 3px solid var(--currentColor);
+  box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+  max-width: 576px;
+  margin: 0 auto;
+}
+.form-validate .input {
+  position: relative;
+}
+.form-validate .input_label {
+  display: inline-block;
+  padding-bottom: 5px;
+  white-space: nowrap;
+  transform: translate(0, 0);
+  transform-origin: 0 0;
+  transition: transform 120ms ease-in;
+  font-weight: bold;
+  line-height: 1.2;
+  color: black;
+}
+.form-validate .error {
+  max-width: 576px;
+  margin: 0 auto;
+  padding: 30px 0;
+  font-size: 22px;
+  font-weight: 500;
+  text-align: left;
+}
+.form-validate input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border: 3px solid var(--currentColor);
+  padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+  color: var(--currentColor);
+  background: transparent;
+  border-radius: var(--size-radius);
+  margin-bottom: 20px;
+}
+.form-validate button {
+  color: currentColor;
+  padding: var(--size-bezel) calc(var(--size-bezel) * 2);
+  background: var(--color-accent);
+  border: none;
+  border-radius: var(--size-radius);
+  font-weight: 900;
+}
+body {
+  background: #272727;
+  font-family: "Montserrat", sans-serif;
+  padding: 125px 20px 20px 20px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.navMenu {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navMenu a {
+  color: #f6f4e6;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  width: 150px;
+  text-align: center;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:hover {
+  color: #fddb3a;
+}
+
+.navMenu .dot {
+  width: 6px;
+  height: 6px;
+  background: #fddb3a;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transform: translateX(75px);
+  transform: translateX(75px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:nth-child(1):hover ~ .dot {
+  -webkit-transform: translateX(75px);
+  transform: translateX(75px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(2):hover ~ .dot {
+  -webkit-transform: translateX(225px);
+  transform: translateX(225px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(3):hover ~ .dot {
+  -webkit-transform: translateX(375px);
+  transform: translateX(375px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(4):hover ~ .dot {
+  -webkit-transform: translateX(525px);
+  transform: translateX(525px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
 }
