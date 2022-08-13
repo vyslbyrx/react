@@ -1,16 +1,13 @@
 import { Link,Outlet} from "react-router-dom"
 import './App.css';
-import {useEffect, useState} from "react";
+import { useState} from "react";
 
 export function Home() {
     return(
         <div>
             <nav className={'navMenu'}>
                 <Link to="/" >Home</Link>
-                <Link to="/about" >About</Link>
-                <Link to="/contactus" >Contact</Link>
-                <Link to="/about/history" >History</Link>
-                <Link to="/form-validate" >Form Validate</Link>
+                <Link to="allExamples" >Tüm Örnekler</Link>
                 <div className="dot"></div>
             </nav>
             <h1>My Home</h1>
@@ -94,54 +91,28 @@ export function FormValidate() {
 
 }
 
-export function AddBasket() {
-
-}
-
-export function About() {
-    useEffect(() => {
-        const id = document.querySelector(".js--slider").dataset.id;
-        console.log(id)
-    }, []);
-
+export function AllExamples() {
     return(
-        <div>
+        <>
             <nav className={'navMenu'}>
                 <Link to="/" >Home</Link>
-                <Link to="/about" >About</Link>
-                <Link to="/contactus" >Contact</Link>
-                <Link to="/about/history" >History</Link>
                 <div className="dot"></div>
             </nav>
-            <Outlet />
-            <h1 className="js--slider" data-id="thisId">About Us</h1>
+        <h1>Tüm Örnekler</h1>
 
-        </div>
+         <div className="examples">
+             <div className="examples-left">
+                 <Link to="form-validate" >Form Validate</Link>
+             </div>
+             <div className="examples-right">
+                 <Outlet />
+             </div>
+         </div>
+
+        </>
     )
 }
 
-export function History() {
-    return(
-        <div>
-            <h1>Geçmişimiz sayfası Hakkımızda Sayfasının bir alt sayfasıdır</h1>
-        </div>
-    )
-}
-
-export function Contact() {
-    return(
-        <div>
-            <nav className={'navMenu'}>
-                <Link to="/" >Home</Link>
-                <Link to="/about" >About</Link>
-                <Link to="/contactus" >Contact</Link>
-                <Link to="/about/history" >History</Link>
-                <div className="dot"></div>
-            </nav>
-            <h1>Contact Us</h1>
-        </div>
-    )
-}
 
 export function App() {
   return (

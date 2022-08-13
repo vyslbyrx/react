@@ -2,18 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {About, Contact, Home, History, FormValidate} from "./App"
+import {Home, FormValidate, AllExamples} from "./App"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
         <Routes >
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />}>
-                <Route path="history" element={<History/>}/>
+            <Route path="/allExamples" element={<AllExamples />} >
+                <Route path="form-validate" element={<FormValidate />} />
             </Route>
-            <Route path="/contactus" element={<Contact />} />
-            <Route path="/form-validate" element={<FormValidate />} />
+
         </Routes>
     </BrowserRouter>
 
