@@ -21,6 +21,8 @@
 
 .examples-left {
   border-right: 1px solid #e5e5e5;
+  min-height: 500px;
+  padding-right: 20px;
 }
 .examples-left a {
   color: white;
@@ -30,6 +32,7 @@
   border: 1px solid #e5e5e530;
   margin-bottom: 5px;
   padding: 10px 20px;
+  display: block;
 }
 /* Form Validate */
 .form-validate {
@@ -82,6 +85,35 @@
   border-radius: var(--size-radius);
   font-weight: 900;
 }
+/* Counter */
+.counter {
+  display: grid;
+  grid-template-columns: 35px 50px 35px;
+  height: 50px;
+}
+.counter-btn {
+  border: 1px solid #c4c4c450;
+  display: flex;
+  place-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  background-color: transparent;
+  line-height: 50px;
+  cursor: pointer;
+}
+.counter input {
+  border-color: #c4c4c450;
+  border-width: 0 1px 0 1px;
+  border-style: solid;
+  font-size: 20px;
+  appearance: none;
+  text-align: center;
+  padding: 0;
+  line-height: 50px;
+}
+
+
 body {
   background: #272727;
   font-family: "Montserrat", sans-serif;

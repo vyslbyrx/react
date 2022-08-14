@@ -1,6 +1,7 @@
 import { Link,Outlet} from "react-router-dom"
 import './App.css';
 import { useState} from "react";
+import {FaStar} from "react-icons/fa";
 
 export function Home() {
     return(
@@ -12,6 +13,31 @@ export function Home() {
             </nav>
             <h1>My Home</h1>
         </div>
+    )
+}
+
+export function AllExamples() {
+    return(
+        <>
+            <nav className={'navMenu'}>
+                <Link to="/" >Home</Link>
+                <div className="dot"></div>
+            </nav>
+            <h1>Tüm Örnekler</h1>
+
+            <div className="examples">
+                <div className="examples-left">
+                    <Link to="form-validate" >Form Validate</Link>
+                    <Link to="counter" >Counter</Link>
+                    <Link to="checkbox" >Checkbox Control</Link>
+                    <Link to="rating" >Rating</Link>
+                </div>
+                <div className="examples-right">
+                    <Outlet />
+                </div>
+            </div>
+
+        </>
     )
 }
 
@@ -91,27 +117,65 @@ export function FormValidate() {
 
 }
 
-export function AllExamples() {
+export function Counter() {
+    const [count,setCount] = useState(0)
     return(
         <>
-            <nav className={'navMenu'}>
-                <Link to="/" >Home</Link>
-                <div className="dot"></div>
-            </nav>
-        <h1>Tüm Örnekler</h1>
 
-         <div className="examples">
-             <div className="examples-left">
-                 <Link to="form-validate" >Form Validate</Link>
-             </div>
-             <div className="examples-right">
-                 <Outlet />
-             </div>
-         </div>
-
+            <div className="counter">
+                <button className="counter-btn" onClick={() => setCount(count-1)}>-</button>
+                <input type="text" value={count}/>
+                <button className="counter-btn"onClick={() => setCount(count+1)}>+</button>
+            </div>
         </>
     )
 }
+
+export function CheckBoxControl() {
+    const [check,setCheck] = useState(false)
+    return(
+        <>
+            <input
+                type="checkbox"
+                checked={check}
+                onChange={() => {
+                    setCheck(check => !check)
+                }}
+                />
+            <p>{check ? "checked" : "not checked"}</p>
+        </>
+    )
+}
+
+export function Rating() {
+
+    const createArray = (length) => [
+        ...Array(length)
+    ];
+
+    function Star({selected = false,onSelect}) {
+        return <FaStar color={selected ? "gold" : "gray"} onClick={onSelect} />
+    }
+
+    function StarRating({totalStars}) {
+      const [selectedStars,setSelectedStars] = useState(0)
+      return  createArray(totalStars).map((n,i) => (
+          <Star
+              key={i}
+              selected={selectedStars > i}
+              onSelect={() => setSelectedStars(i + 1)}
+          />
+          ))
+    }
+
+    return(
+        <>
+            <StarRating totalStars={5} />
+        </>
+    )
+}
+
+
 
 
 export function App() {
