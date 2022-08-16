@@ -1,6 +1,6 @@
 import { Link,Outlet} from "react-router-dom"
 import './App.css';
-import {useReducer, useRef, useState} from "react";
+import {useReducer, useState} from "react";
 import {FaStar} from "react-icons/fa";
 
 export function Home() {
