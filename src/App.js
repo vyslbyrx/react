@@ -1,9 +1,58 @@
 import { Link,Outlet} from "react-router-dom"
 import './App.css';
-import { useState} from "react";
+import {useReducer, useRef, useState} from "react";
 import {FaStar} from "react-icons/fa";
 
 export function Home() {
+
+    const initialState = {
+        message: "Hi"
+    };
+    function reducer(state,action) {
+        switch (action.type) {
+            case "SELAM":
+                return {
+                    message: "Selamlar"
+                }
+            case "MERHABA":
+                return {
+                    message: "Merhabalar"
+                }
+            case "NASILSIN":
+                return {
+                    message: "Nasılsınız"
+                }
+            case "IYI":
+                return {
+                    message: "Aynı bea nolsun"
+                }
+            case "KANKA":
+                return {
+                    message: "Kankam hoşgeldin."
+                }
+            default:
+                return {
+                    message: state.message
+                }
+        }
+    }
+    // Reducer SwitchCase
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    const buttonList= [
+        {type: "SELAM"},
+        {type: "MERHABA"},
+        {type: "NASILSIN"},
+        {type: "IYI"},
+        {type: "KANKA"}
+    ]
+
+    const buttonListHtml = () => {
+       return buttonList.map(button => (
+            <button onClick={() =>dispatch({type: button.type})}>{button.type}</button>
+        ))
+    }
+
     return(
         <div>
             <nav className={'navMenu'}>
@@ -12,6 +61,9 @@ export function Home() {
                 <div className="dot"></div>
             </nav>
             <h1>My Home</h1>
+            <p>{state.message}</p>
+
+            {buttonListHtml()}
         </div>
     )
 }
@@ -158,7 +210,7 @@ export function Rating() {
     }
 
     function StarRating({totalStars}) {
-      const [selectedStars,setSelectedStars] = useState(0)
+      const [selectedStars,setSelectedStars] = useState(0);
       return  createArray(totalStars).map((n,i) => (
           <Star
               key={i}
@@ -168,9 +220,11 @@ export function Rating() {
           ))
     }
 
+    const [starCount,setStarCount] = useState(5)
     return(
         <>
-            <StarRating totalStars={5} />
+            <StarRating totalStars={starCount} />
+            <input style={{display: "block",marginTop: "20px"}} type="number" onChange={(e) => setStarCount(Number(e.target.value))}/>
         </>
     )
 }

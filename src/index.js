@@ -9,7 +9,7 @@ root.render(
     <BrowserRouter>
         <Routes >
             <Route path="/" element={<Home />} />
-            <Route path="/allExamples" element={<AllExamples />} >
+            <Route path="allExamples" element={<AllExamples />} >
                 <Route path="form-validate" element={<FormValidate />} />
                 <Route path="counter" element={<Counter />} />
                 <Route path="checkbox" element={<CheckBoxControl />} />
